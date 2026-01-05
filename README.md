@@ -1,10 +1,16 @@
-# agent-runtime-security-failures
-Observed security failures in IDE-based LLM agents under real-world conditions.
-# IDE-Based LLM Agent Runtime Failures
+# IDE-Based LLM Agent Security Failures
 
 ## Summary
+As many organizations rapidly adopt AI-assisted development tools
+(e.g., IDE-integrated copilots and agent-based workflows),
+LLM agents are increasingly granted direct access to codebases,
+development environments, and execution capabilities.
+
+This shift introduces new security failure modes that do not resemble
+traditional application or API vulnerabilities.
+
 We observed a recurring class of security failures in **IDE-integrated LLM agents**
-(e.g., Cursor- or Copilot-like tools), where the agent performs unsafe actions
+(e.g., Cursor- or Copilot-like workflows), where the agent performs unsafe actions
 despite existing prompt-level and policy-based protections.
 
 These behaviors were identified **in a real production environment**, not in
@@ -63,7 +69,7 @@ As a result, the failure occurs after the agent has already decided to act.
 
 ---
 
-## Why This Is Especially Risky in IDEs (Cursor-like Tools)
+## Why This Is Especially Risky in IDEs
 
 - IDE agents operate through standard `/chat/completions` flows.
 - There is no explicit “security event” — only a code change.
@@ -101,7 +107,11 @@ static rules, or output moderation alone.
 
 ## Scope
 
-This issue applies broadly to:
+This document describes a **general class of security failures**
+observed in IDE-based LLM agent workflows, rather than a vulnerability
+in any specific product or tool.
+
+It applies broadly to:
 - IDE-integrated LLM agents
 - developer copilots with write access
 - autonomous or semi-autonomous coding workflows
@@ -126,3 +136,5 @@ not to provide implementation details.
 
 If you are seeing similar behaviors in IDE-based LLM systems
 and would like to compare observations, feel free to reach out privately.
+Contact: chenelbaz86@gmail.com
+
